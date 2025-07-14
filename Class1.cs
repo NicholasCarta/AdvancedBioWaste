@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace AdvancedBioWaste
 {
-    public class Class1
+    public class Patches
     {
+        [HarmonyPatch](typof(X))]
+        [HarmonyPatch("X")]
+
+        public class PATCH_X
     }
 }
