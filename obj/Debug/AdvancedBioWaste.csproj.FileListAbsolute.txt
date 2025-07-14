@@ -1,2 +1,16 @@
-C:\Users\nicho\source\repos\ONIMods\AdvancedBioWaste\obj\Debug\AdvancedBioWaste.csprojAssemblyReference.cache
 C:\Users\nicho\source\repos\ONIMods\AdvancedBioWaste\obj\Debug\AdvancedBioWaste.csproj.CoreCompileInputs.cache
+C:\Users\nicho\source\repos\ONIMods\AdvancedBioWaste\bin\Debug\AdvancedBioWaste.dll
+C:\Users\nicho\source\repos\ONIMods\AdvancedBioWaste\bin\Debug\AdvancedBioWaste.pdb
+C:\Users\nicho\source\repos\ONIMods\AdvancedBioWaste\bin\Debug\0Harmony.dll
+C:\Users\nicho\source\repos\ONIMods\AdvancedBioWaste\bin\Debug\Assembly-CSharp-firstpass.dll
+C:\Users\nicho\source\repos\ONIMods\AdvancedBioWaste\bin\Debug\Assembly-CSharp.dll
+C:\Users\nicho\source\repos\ONIMods\AdvancedBioWaste\bin\Debug\Unity.TextMeshPro.dll
+C:\Users\nicho\source\repos\ONIMods\AdvancedBioWaste\bin\Debug\UnityEngine.CoreModule.dll
+C:\Users\nicho\source\repos\ONIMods\AdvancedBioWaste\bin\Debug\UnityEngine.dll
+C:\Users\nicho\source\repos\ONIMods\AdvancedBioWaste\bin\Debug\UnityEngine.ImageConversionModule.dll
+C:\Users\nicho\source\repos\ONIMods\AdvancedBioWaste\bin\Debug\UnityEngine.UI.dll
+C:\Users\nicho\source\repos\ONIMods\AdvancedBioWaste\bin\Debug\0Harmony.pdb
+C:\Users\nicho\source\repos\ONIMods\AdvancedBioWaste\bin\Debug\0Harmony.xml
+C:\Users\nicho\source\repos\ONIMods\AdvancedBioWaste\obj\Debug\AdvancedBioWaste.csproj.CopyComplete
+C:\Users\nicho\source\repos\ONIMods\AdvancedBioWaste\obj\Debug\AdvancedBioWaste.dll
+C:\Users\nicho\source\repos\ONIMods\AdvancedBioWaste\obj\Debug\AdvancedBioWaste.pdb
