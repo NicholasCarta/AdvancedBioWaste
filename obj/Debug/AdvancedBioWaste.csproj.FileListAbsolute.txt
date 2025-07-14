@@ -1,0 +1,2 @@
+C:\Users\nicho\source\repos\ONIMods\AdvancedBioWaste\obj\Debug\AdvancedBioWaste.csprojAssemblyReference.cache
+C:\Users\nicho\source\repos\ONIMods\AdvancedBioWaste\obj\Debug\AdvancedBioWaste.csproj.CoreCompileInputs.cache
