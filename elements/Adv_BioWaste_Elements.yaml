@@ -1,0 +1,87 @@
+elements:
+  - elementId: BioWasteGas
+    specificHeatCapacity: 2.191
+    thermalConductivity: 0.035
+    solidSurfaceAreaMultiplier: 25
+    liquidSurfaceAreaMultiplier: 1
+    gasSurfaceAreaMultiplier: 1
+    flow: 0.1
+    lowTemp: 111.65
+    lowTempTransitionTarget: LiquidMethane
+    defaultTemperature: 300
+    defaultPressure: 7
+    molarMass: 16.044
+    toxicity: 0
+    lightAbsorptionFactor: 0.25
+    radiationAbsorptionFactor: 0.07
+    radiationPer1000Mass: 0
+    materialCategory: Unbreathable
+    tags:
+      - CombustibleGas
+    isDisabled: false
+    state: Gas
+    localizationID: STRINGS.ELEMENTS.BIOWASTEGAS.NAME
+    dlcId: ""
+
+  - elementId: BioWaste
+    maxMass: 1000
+    liquidCompression: 1.01
+    speed: 125
+    minHorizontalFlow: 0.01
+    minVerticalFlow: 0.01
+    specificHeatCapacity: 4.179
+    thermalConductivity: 0.58
+    solidSurfaceAreaMultiplier: 1
+    liquidSurfaceAreaMultiplier: 25
+    gasSurfaceAreaMultiplier: 1
+    lowTemp: 252.5
+    highTemp: 392.5
+    lowTempTransitionTarget: DirtyIce
+    highTempTransitionTarget: Steam
+    sublimateId: ContaminatedOxygen
+    sublimateFx: ContaminatedOxygenBubbleWater
+    offGasPercentage: 0.001
+    sublimateEfficiency: 1
+    sublimateProbability: 0.01
+    highTempTransitionOreId: Dirt
+    highTempTransitionOreMassConversion: 0.01
+    defaultTemperature: 300
+    defaultMass: 1000
+    molarMass: 20
+    toxicity: 0.1
+    lightAbsorptionFactor: 0.7
+    radiationAbsorptionFactor: 0.8
+    radiationPer1000Mass: 0
+    tags:
+      - Mixture
+      - Anywater
+    isDisabled: false
+    state: Liquid
+    localizationID: STRINGS.ELEMENTS.BIOWASTE.NAME
+    dlcId: ""
+
+  - elementId: SolidBioWaste
+    specificHeatCapacity: 1.48
+    thermalConductivity: 2
+    solidSurfaceAreaMultiplier: 1
+    liquidSurfaceAreaMultiplier: 1
+    gasSurfaceAreaMultiplier: 1
+    strength: 0.2
+    highTemp: 600
+    highTempTransitionTarget: Sand
+    defaultTemperature: 290
+    defaultMass: 1840
+    maxMass: 1840
+    hardness: 2
+    molarMass: 50
+    lightAbsorptionFactor: 1
+    radiationAbsorptionFactor: 0.75
+    radiationPer1000Mass: 0
+    materialCategory: Farmable
+    tags:
+      - BuildableAny
+    buildMenuSort: 1
+    isDisabled: false
+    state: Solid
+    localizationID: STRINGS.ELEMENTS.SOLIDBIOWASTE.NAME
+    dlcId: ""

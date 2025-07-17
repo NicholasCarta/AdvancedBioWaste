@@ -66,6 +66,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BioWasteMaterialHelper.cs" />
+    <Compile Include="AdvancedBioWasteMono.cs" />
+    <Compile Include="AdvancedBioWasteBootStrap.cs" />
+    <Compile Include="CustomSimHashes.cs" />
     <Compile Include="Strings.cs" />
     <Compile Include="Patches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +80,9 @@
   <ItemGroup>
     <None Include="mod.yaml" />
     <None Include="mod_info.yaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="elements\Adv_BioWaste_Elements.yaml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
