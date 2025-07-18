@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace STRINGS
+public static class STRINGS
 {
     public static class BACTERIALINFECTION
     {

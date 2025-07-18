@@ -66,11 +66,6 @@ public static class Disease_InitializeElemGrowthArray_Patch
                 Debug.LogWarning("[AdvancedBioWaste] BioWasteMaterial not yet created or element missing.");
             }
 
-            Debug.Log("=== Checking base elements ===");
-            Debug.Log("Fertilizer: " + ElementLoader.FindElementByHash(SimHashes.Fertilizer));
-            Debug.Log("BioWaste: " + ElementLoader.FindElementByHash(CustomSimHashes.BioWaste));
-            Debug.Log("DirtyWater: " + ElementLoader.FindElementByHash(SimHashes.DirtyWater));
-
             Debug.Log("[AdvancedBioWaste] Injecting BioWaste substances after ElementLoader.Load");
 
             Debug.Log("[AdvancedBioWaste] Dumping all loaded elements:");
@@ -89,58 +84,6 @@ public static class Disease_InitializeElemGrowthArray_Patch
                 Debug.LogError("One or More BioWaste element not found! YAML may not have been loaded.");
                 return;
             }
-
-            //var liquidmat = Assets.GetMaterial("liquid");
-            //if (liquidmat == null)
-            //    Debug.LogError("[AdvancedBioWaste] 'liquid' material not found!");
-
-
-            //Create new Substance Definitions
-            BiowasteAssets.bioWasteSubstance = ModUtil.CreateSubstance(
-                name: "BioWaste",
-                kanim: Assets.GetAnim("liquidmethane_kanim"),
-                state: Element.State.Liquid,
-                material: null,
-                colour: new Color32(120, 80, 40, 255),
-                ui_colour: new Color32(120, 80, 40, 255),
-                conduit_colour: new Color32(120, 80, 40, 255)
-                );
-
-            BiowasteAssets.bioWasteSubstance.elementID = CustomSimHashes.BioWaste;
-            ElementLoader.FindElementByHash(CustomSimHashes.BioWaste).substance = BiowasteAssets.bioWasteSubstance;
-
-            //if (BioWasteMaterialCreator.bioWasteMaterial == null)
-            //    Debug.LogError("[AdvancedBioWaste] bioWasteMaterial is null!");
-
-            //BiowasteAssets.solidBioWasteSubstance = ModUtil.CreateSubstance(
-            //    name: "SolidBioWaste",
-            //    kanim: Assets.GetAnim("dirt_kanim"),
-            //    state: Element.State.Solid,
-            //    material: BioWasteMaterialCreator.bioWasteMaterial,
-            //    colour: new Color32(120, 80, 40, 255),
-            //    ui_colour: new Color32(120, 80, 40, 255),
-            //    conduit_colour: new Color32(120, 80, 40, 255)
-            //    );
-
-            //BiowasteAssets.solidBioWasteSubstance.elementID = CustomSimHashes.SolidBioWaste;
-            //ElementLoader.FindElementByHash(CustomSimHashes.SolidBioWaste).substance = BiowasteAssets.solidBioWasteSubstance;
-
-            //var gasMat = Assets.GetMaterial("gas");
-            //if (gasMat == null)
-            //    Debug.LogError("[AdvancedBioWaste] 'gas' material not found!");
-
-            BiowasteAssets.bioWasteGasSubstance = ModUtil.CreateSubstance(
-                name: "BioWasteGas",
-                kanim: Assets.GetAnim("contaminatedoxygen_kanim"),
-                state: Element.State.Gas,
-                material: null,
-                colour: new Color32(120, 80, 40, 255),
-                ui_colour: new Color32(120, 80, 40, 255),
-                conduit_colour: new Color32(120, 80, 40, 255)
-                );
-
-            BiowasteAssets.bioWasteGasSubstance.elementID = CustomSimHashes.BioWasteGas;
-            ElementLoader.FindElementByHash(CustomSimHashes.BioWasteGas).substance = BiowasteAssets.bioWasteGasSubstance;
 
             /////////////////DEBUG/////////////////
 
@@ -166,7 +109,67 @@ public static class Disease_InitializeElemGrowthArray_Patch
             {
                 Debug.Log(shader.name);
             }
+        }
 
+        public static Substance CreateBiowate()
+        {
+            //var liquidmat = Assets.GetMaterial("liquid");
+            //if (liquidmat == null)
+            //    Debug.LogError("[AdvancedBioWaste] 'liquid' material not found!");
+
+
+            var liquidMaterial = new Material(Assets.instance.substanceTable.liquidMaterial);
+            liquidMaterial.name = "BioWasteLiquidMaterial";
+            //Create new Substance Definitions
+            BiowasteAssets.bioWasteSubstance = ModUtil.CreateSubstance(
+                name: "BioWaste",
+                kanim: Assets.GetAnim("liquidmethane_kanim"),
+                state: Element.State.Liquid,
+                material: liquidMaterial,
+                colour: new Color32(120, 80, 40, 255),
+                ui_colour: new Color32(120, 80, 40, 255),
+                conduit_colour: new Color32(120, 80, 40, 255)
+                );
+
+            BiowasteAssets.bioWasteSubstance.elementID = CustomSimHashes.BioWaste;
+            ElementLoader.FindElementByHash(CustomSimHashes.BioWaste).substance = BiowasteAssets.bioWasteSubstance;
+
+            //if (BioWasteMaterialCreator.bioWasteMaterial == null)
+            //    Debug.LogError("[AdvancedBioWaste] bioWasteMaterial is null!");
+
+            var solidMaterial = new Material(Assets.instance.substanceTable.solidMaterial);
+            solidMaterial.name = "BioWasteSolidMaterial";
+
+            BiowasteAssets.solidBioWasteSubstance = ModUtil.CreateSubstance(
+                name: "SolidBioWaste",
+                kanim: Assets.GetAnim("dirt_kanim"),
+                state: Element.State.Solid,
+                material: solidMaterial,
+                colour: new Color32(120, 80, 40, 255),
+                ui_colour: new Color32(120, 80, 40, 255),
+                conduit_colour: new Color32(120, 80, 40, 255)
+                );
+
+            BiowasteAssets.solidBioWasteSubstance.elementID = CustomSimHashes.SolidBioWaste;
+            ElementLoader.FindElementByHash(CustomSimHashes.SolidBioWaste).substance = BiowasteAssets.solidBioWasteSubstance;
+
+            //var gasMat = Assets.GetMaterial("gas");
+            //if (gasMat == null)
+            //    Debug.LogError("[AdvancedBioWaste] 'gas' material not found!");
+
+
+            BiowasteAssets.bioWasteGasSubstance = ModUtil.CreateSubstance(
+                name: "BioWasteGas",
+                kanim: Assets.GetAnim("contaminatedoxygen_kanim"),
+                state: Element.State.Gas,
+                material: null,
+                colour: new Color32(120, 80, 40, 255),
+                ui_colour: new Color32(120, 80, 40, 255),
+                conduit_colour: new Color32(120, 80, 40, 255)
+                );
+
+            BiowasteAssets.bioWasteGasSubstance.elementID = CustomSimHashes.BioWasteGas;
+            ElementLoader.FindElementByHash(CustomSimHashes.BioWasteGas).substance = BiowasteAssets.bioWasteGasSubstance;
         }
     }
 
@@ -279,6 +282,15 @@ public static class Disease_InitializeElemGrowthArray_Patch
                 Debug.LogError("[AdvancedBioWaste] Singleton instance not found! Cannot start coroutine.");
             }
         }        
+    }
+
+    [HarmonyPatch(typeof(Localization), "Initialize")]
+    public static class Localization_Initialize_Patch
+    {
+        public static void Postfix()
+        {
+            ModUtil.RegisterForTranslation(typeof(STRINGS));
+        }
     }
 
     //[HarmonyPatch(typeof(Assets), "OnPrefabInit")]
