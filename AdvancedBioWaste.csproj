@@ -67,10 +67,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BioWasteAssets.cs" />
     <Compile Include="BioWasteMaterialHelper.cs" />
     <Compile Include="AdvancedBioWasteMono.cs" />
     <Compile Include="AdvancedBioWasteBootStrap.cs" />
     <Compile Include="CustomSimHashes.cs" />
+    <Compile Include="ModElements.cs" />
     <Compile Include="Strings.cs" />
     <Compile Include="Patches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
