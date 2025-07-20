@@ -145,22 +145,10 @@ namespace AdvancedBioWaste
             base.OnLoad(harmony);
             Harmony.DEBUG = true;
 
-            //Register new disease and elements with Strings.cs
-            ModUtil.RegisterForTranslation(typeof(STRINGS.BACTERIALINFECTION));
-            Debug.Log("[AdvancedBioWaste] Registered disease NAME string = " + STRINGS.BACTERIALINFECTION.NAME);
-
-            ModUtil.RegisterForTranslation(typeof(STRINGS.ELEMENTS.BIOWASTE));
-            Debug.Log("[AdvancedBioWaste] Registered element NAME string = " + STRINGS.ELEMENTS.BIOWASTE.NAME);
-
-            ModUtil.RegisterForTranslation(typeof(STRINGS.ELEMENTS.SOLIDBIOWASTE));
-            Debug.Log("[AdvancedBioWaste] Registered element NAME string = " + STRINGS.ELEMENTS.SOLIDBIOWASTE.NAME);
-
-            ModUtil.RegisterForTranslation(typeof(STRINGS.ELEMENTS.BIOWASTEGAS));
-            Debug.Log("[AdvancedBioWaste] Registered element NAME string = " + STRINGS.ELEMENTS.BIOWASTEGAS.NAME);
-
             harmony.PatchAll();
 
-            Debug.Log("Running exposure patch...");
+            Debug.Log("Running Harmony Patches");
+            Debug.Log("Running Exposure Patch...");
 
             var exposureList = TUNING.GERM_EXPOSURE.TYPES.ToList();
 
@@ -220,6 +208,7 @@ namespace AdvancedBioWaste
         public static void Postfix()
         {
             ModUtil.RegisterForTranslation(typeof(STRINGS));
+            Debug.Log("[AdvancedBioWaste] Register for translation called");
         }
     }
 

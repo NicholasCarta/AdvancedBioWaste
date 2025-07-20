@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AdvancedBioWaste
 {
-    class STRINGS
+    public static class STRINGS
     {
         public static class BACTERIALINFECTION
         {
