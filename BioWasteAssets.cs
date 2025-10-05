@@ -29,8 +29,7 @@ namespace AdvancedBioWaste
                 );
 
             BiowasteAssets.bioWasteSubstance.elementID = CustomSimHashes.BioWaste;
-            //ElementLoader.FindElementByHash(CustomSimHashes.BioWaste).substance = BiowasteAssets.bioWasteSubstance;
-
+           
             return BiowasteAssets.bioWasteSubstance;
         }
         public static Substance CreateSolidBiowate()
@@ -49,8 +48,7 @@ namespace AdvancedBioWaste
                 );
 
             BiowasteAssets.solidBioWasteSubstance.elementID = CustomSimHashes.SolidBioWaste;
-            //ElementLoader.FindElementByHash(CustomSimHashes.SolidBioWaste).substance = BiowasteAssets.solidBioWasteSubstance;
-
+           
             return BiowasteAssets.solidBioWasteSubstance;
         }
 
@@ -67,8 +65,7 @@ namespace AdvancedBioWaste
                 );
 
             BiowasteAssets.bioWasteGasSubstance.elementID = CustomSimHashes.BioWasteGas;
-            //ElementLoader.FindElementByHash(CustomSimHashes.BioWasteGas).substance = BiowasteAssets.bioWasteGasSubstance;
-
+            
             return BiowasteAssets.bioWasteGasSubstance;
         }
     }

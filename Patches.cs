@@ -37,6 +37,11 @@ namespace AdvancedBioWaste
     [HarmonyPatch(typeof(ElementLoader), nameof(ElementLoader.Load))]
     public static class ElementLoader_Load_Patch
     {
+        public static void Prefix(Dictionary<string, SubstanceTable> substanceTablesByDlc)
+        {
+            var list = substanceTablesByDlc[DlcManager.VANILLA_ID].GetList();
+            ModElements.RegisterSubstances(list);
+        }
         public static void Postfix()
         {
            //var bioWasteElement = ElementLoader.FindElementByHash(CustomSimHashes.SolidBioWaste);
@@ -96,11 +101,7 @@ namespace AdvancedBioWaste
             //}
         }
 
-        public static void Prefix(Dictionary<string, SubstanceTable> substanceTablesByDlc)
-        {
-            var list = substanceTablesByDlc[DlcManager.VANILLA_ID].GetList();
-            ModElements.RegisterSubstances(list);
-        }
+        
     }
 
     public class BacterialInfection : Disease
@@ -148,40 +149,31 @@ namespace AdvancedBioWaste
             harmony.PatchAll();
 
             Debug.Log("Running Harmony Patches");
-            Debug.Log("Running Exposure Patch...");
 
-            var exposureList = TUNING.GERM_EXPOSURE.TYPES.ToList();
+                var exposureList = TUNING.GERM_EXPOSURE.TYPES.ToList();
 
-            //EXPOSURE SPECFICATIONS
-            ExposureType customExposure = new ExposureType()
-            {
-                germ_id = "Bacteria",
-                sickness_id = "BacterialInfection",
-                exposure_threshold = 100,
-                excluded_traits = new List<string>() { "IronGut" },
-                base_resistance = 2,
-                excluded_effects = new List<string>()
+                //EXPOSURE SPECFICATIONS
+                ExposureType customExposure = new ExposureType()
+                {
+                    germ_id = "Bacteria",
+                    sickness_id = "BacterialInfection",
+                    exposure_threshold = 100,
+                    excluded_traits = new List<string>() { "IronGut" },
+                    base_resistance = 2,
+                    excluded_effects = new List<string>()
                     {
                         "BacterialInfectionRecovery"
                     }
-            };
+                };
 
-            exposureList.Add(customExposure);
-            TUNING.GERM_EXPOSURE.TYPES = exposureList.ToArray();
-
-            Debug.Log("About to run the for each loop....");
-
-            foreach (var exposure in TUNING.GERM_EXPOSURE.TYPES)
-            {
-                Debug.Log($"ExposureType ID: {exposure.germ_id}, Sickness: {exposure.sickness_id}");
-            }
+                exposureList.Add(customExposure);
+                TUNING.GERM_EXPOSURE.TYPES = exposureList.ToArray();
 
             //Modifies duplicant secretions
             DUPLICANTSTATS.STANDARD.Secretions.PEE_DISEASE = "BacterialInfection";
             Debug.Log("PEE_DISEASE set to: " + DUPLICANTSTATS.STANDARD.Secretions.PEE_DISEASE);
 
-            Debug.Log("[AdvancedBioWaste] Listing all loaded material assets:");
-
+            //Start Mono instance
             if (AdvancedBioWasteMono.Instance == null)
             {
                 var go = new GameObject("AdvancedBioWasteMono");
@@ -199,25 +191,25 @@ namespace AdvancedBioWaste
             {
                 Debug.LogError("[AdvancedBioWaste] Singleton instance not found! Cannot start coroutine.");
             }
+
+            ///////////////DEBUG//////////////
+
+            Debug.Log("Dumping GERM_EXPOSURE.TYPES");
+
+            foreach (var exposure in TUNING.GERM_EXPOSURE.TYPES)
+            {
+                Debug.Log($"ExposureType ID: {exposure.germ_id}, Sickness: {exposure.sickness_id}");
+            }
         }        
     }
 
     [HarmonyPatch(typeof(Localization), "Initialize")]
     public static class Localization_Initialize_Patch
     {
-        public static void Postfix()
+        public static void Prefix()
         {
             ModUtil.RegisterForTranslation(typeof(STRINGS));
             Debug.Log("[AdvancedBioWaste] Register for translation called");
         }
     }
-
-    //[HarmonyPatch(typeof(Assets), "OnPrefabInit")]
-    //public static class Assets_OnPrefabInit_Patch
-    //{
-    //    public static void Postfix()
-    //    {
-
-    //    }
-    //}
 }

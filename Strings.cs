@@ -9,13 +9,18 @@ namespace AdvancedBioWaste
 {
     public static class STRINGS
     {
-        public static class BACTERIALINFECTION
+        public static class DUPLICANTS
         {
-            public static LocString NAME = (LocString)global::STRINGS.UI.FormatAsLink("Bacterial Infection", nameof(BACTERIALINFECTION));
-            public static LocString LEGEND_HOVERTEXT = (LocString)"Bacterial Infection Germs present\n";
-            public static LocString DESC = (LocString)"This disease causes discomfort and health issues due to bacterial contamination.";
+            public static class DISEASES
+            {
+                public static class BACTERIALINFECTION
+                {
+                    public static LocString NAME = (LocString)global::STRINGS.UI.FormatAsLink("Bacterial Infection", nameof(BACTERIALINFECTION));
+                    public static LocString LEGEND_HOVERTEXT = (LocString)"Bacterial Infection Germs present\n";
+                    public static LocString DESC = (LocString)"This disease causes discomfort and health issues due to bacterial contamination.";
+                }
+            }     
         }
-
         public static class ELEMENTS
         {
             public static class BIOWASTE
